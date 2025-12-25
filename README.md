@@ -8,6 +8,14 @@
 
 ---
 
+## ⚠️ NOINDEX TAG ACTIVE - REMOVE BEFORE PRODUCTION
+
+**Current site has `<meta name="robots" content="noindex">` to prevent Google indexing.**
+
+**Before launching with real domain:** Remove the noindex tag from `src/layouts/Layout.astro` (lines 27-29)
+
+---
+
 ## WHAT THIS IS
 
 Multi-page marketing website for health tourism lead generation:

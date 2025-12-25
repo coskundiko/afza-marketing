@@ -4,6 +4,19 @@ This document tracks implemented features, code locations, and implementation de
 
 ---
 
+## ⚠️ CRITICAL: NOINDEX TAG ACTIVE - REMOVE BEFORE PRODUCTION
+
+**Site currently has `<meta name="robots" content="noindex, nofollow">` to prevent Google from indexing the Vercel preview URL.**
+
+**WHEN SWITCHING TO REAL DOMAIN:**
+1. Remove noindex tag from `src/layouts/Layout.astro` (lines 27-29)
+2. Update site URL in `astro.config.mjs`
+3. Update robots.txt
+4. Rebuild and deploy
+5. Submit to Google Search Console
+
+---
+
 ## Project Overview
 
 **Project:** Afza Marketing Website

@@ -19,6 +19,21 @@ This is a marketing website built to showcase health tourism services and genera
 
 ---
 
+## ⚠️ CRITICAL: NOINDEX TAG ACTIVE
+
+**CURRENT STATUS:** Site has `<meta name="robots" content="noindex, nofollow">` to prevent Google indexing the Vercel preview URL.
+
+**⚠️ WHEN SWITCHING TO REAL DOMAIN (afza.ai), YOU MUST:**
+1. Remove the noindex tag from `src/layouts/Layout.astro` (lines 27-29)
+2. Update site URL in `astro.config.mjs`
+3. Update robots.txt sitemap URL
+4. Rebuild and redeploy
+5. Submit to Google Search Console
+
+**File location:** `src/layouts/Layout.astro` - Look for the WARNING comment
+
+---
+
 ## Documentation Structure
 
 This project uses four main documentation files:
