@@ -17,4 +17,10 @@
   header {
     view-transition-name: header-persist;
   }
+
+  /* Always show scrollbar to prevent layout shift */
+  html {
+    /*overflow-y: scroll; !* Always show scrollbar (disabled when not needed) *!*/
+    scrollbar-width: thin; /* Firefox - thinner scrollbar */
+  }
 }
