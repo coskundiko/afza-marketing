@@ -8,7 +8,7 @@ This document tracks implemented features, code locations, and implementation de
 
 **Project:** Afza Marketing Website
 **Purpose:** Health tourism lead generation via organic SEO
-**Tech Stack:** Astro 5, Vue 3, TypeScript, Tailwind CSS v4
+**Tech Stack:** Astro 5, Alpine.js, TypeScript, Tailwind CSS v4
 **Timeline:** 3 weeks (Dec 25 → Jan 15, 2025)
 **Deadline:** January 15, 2025 (USA partner meeting)
 
@@ -27,13 +27,13 @@ Initial Astro project setup with Vue 3 and Tailwind CSS v4.
 **Completed:**
 - ✅ Astro 5 project created
 - ✅ Tailwind CSS v4 installed (Vite plugin, no PostCSS)
-- ✅ Vue 3 integration added
+- ✅ Alpine.js integration added
 - ✅ Documentation structure created
 - ✅ Git repository initialized
 
 **Files Created:**
-- `package.json` - Dependencies (Astro, Vue, Tailwind)
-- `astro.config.mjs` - Configuration (Vue + Tailwind Vite plugin)
+- `package.json` - Dependencies (Astro, Alpine.js, Tailwind)
+- `astro.config.mjs` - Configuration (Alpine.js + Tailwind Vite plugin)
 - `src/styles/global.css` - Tailwind imports
 - `README.md` - Project documentation
 - `CLAUDE.md` - AI context
@@ -44,7 +44,7 @@ Initial Astro project setup with Vue 3 and Tailwind CSS v4.
 **Human Review:**
 - [x] Astro installed correctly
 - [x] Tailwind CSS v4 working
-- [x] Vue 3 integration working
+- [x] Alpine.js integration working
 - [x] Dev server runs (`npm run dev`)
 
 **Testing Verified:**
@@ -61,8 +61,8 @@ Initial Astro project setup with Vue 3 and Tailwind CSS v4.
 Complete homepage with hero section, SEO optimization, and responsive design.
 
 **Completed:**
-- ✅ Main layout (Layout.astro) with Tailwind import
-- ✅ Header component (Vue island, persistent navigation)
+- ✅ Main layout (Layout.astro) with Tailwind import and Alpine.js
+- ✅ Header component (Alpine.js, persistent navigation)
 - ✅ Footer component (Astro, static)
 - ✅ Homepage (index.astro) with Hero, Features, CTA sections
 - ✅ Hero section component with gradient background
@@ -76,9 +76,9 @@ Complete homepage with hero section, SEO optimization, and responsive design.
 ```
 src/
 ├── layouts/
-│   └── Layout.astro           # Main layout (header, footer, Tailwind import)
+│   └── Layout.astro           # Main layout (header, footer, Tailwind import, Alpine.js)
 ├── components/
-│   ├── Header.vue             # Persistent header (Vue island)
+│   ├── Header.astro           # Persistent header (Alpine.js)
 │   ├── Footer.astro           # Static footer
 │   ├── Hero.astro             # Homepage hero
 │   └── SEO/
@@ -418,8 +418,8 @@ docs: final documentation updates
 - Auto-optimized for production
 - Lightning CSS enabled in prod builds
 
-### Vue 3 Islands
-- Only interactive components use Vue
+### Alpine.js Components
+- Only interactive components use Alpine.js (15KB total)
 - Rest is static HTML (0KB JS for content)
 - Persistent state with `transition:persist`
 

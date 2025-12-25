@@ -44,7 +44,7 @@ This is a marketing website for health tourism lead generation.
 
 **Frontend:**
 - Astro 5 (static site generation)
-- Vue 3 (interactive components/islands)
+- Alpine.js (interactive components, lightweight)
 - Tailwind CSS v4 (Vite plugin, no PostCSS)
 - TypeScript (type safety)
 
@@ -65,7 +65,7 @@ This is a marketing website for health tourism lead generation.
 ├── src/
 │   ├── pages/              # Routes (*.astro files)
 │   ├── layouts/            # Layout components
-│   ├── components/         # Reusable components (Astro + Vue)
+│   ├── components/         # Reusable components (Astro + Alpine.js)
 │   ├── content/blog/       # Markdown blog posts
 │   ├── styles/             # Tailwind global CSS
 │   └── lib/                # Utilities
@@ -84,12 +84,12 @@ This is a marketing website for health tourism lead generation.
 ### ✅ SETUP (COMPLETED)
 - [x] Create Astro project
 - [x] Add Tailwind CSS v4
-- [x] Add Vue 3
+- [x] Add Alpine.js
 - [x] Create documentation files
 
 ### 📋 WEEK 1 (Dec 25-31): Homepage
 - [ ] Create main layout (Layout.astro)
-- [ ] Create Header (Vue component)
+- [ ] Create Header (Alpine.js component)
 - [ ] Create Footer (Astro component)
 - [ ] Build homepage (index.astro)
 - [ ] Add SEO meta tags
@@ -125,8 +125,8 @@ This is a marketing website for health tourism lead generation.
 - No `postcss.config.js` needed
 - Auto-optimized for production
 
-**Vue 3 Islands:**
-- Only interactive components use Vue
+**Alpine.js:**
+- Only interactive components use Alpine.js (15KB)
 - Rest is static HTML (better SEO)
 - Persistent state with `transition:persist`
 

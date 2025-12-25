@@ -12,7 +12,7 @@
 **Position:** Family partnership project (Hafsa & Cihan)
 
 This is a marketing website built to showcase health tourism services and generate USA customer leads via organic SEO. The project demonstrates:
-- Modern web development (Astro + Vue + TypeScript + Tailwind v4)
+- Modern web development (Astro + Alpine.js + TypeScript + Tailwind v4)
 - Elite SEO optimization (98-100 Lighthouse target)
 - Static site generation for maximum performance
 - AI search optimization (Google, ChatGPT, Perplexity)
@@ -118,7 +118,7 @@ npm run astro check
 
 **Example:**
 1. Read `features/FEAT-001-week1-homepage.md`
-2. Create Layout.astro, Header.vue, Footer.astro, Hero.astro
+2. Create Layout.astro, Header.astro, Footer.astro, Hero.astro
 3. Test on `localhost:4321`
 4. Mark tasks complete in FEAT-001 file
 5. Update DEVELOPMENT.md status
@@ -170,11 +170,11 @@ git commit -m "docs: final documentation updates"
 ## Architecture Decisions
 
 ### Tech Stack
-**Astro 5 + Vue 3 + TypeScript + Tailwind CSS v4**
+**Astro 5 + Alpine.js + TypeScript + Tailwind CSS v4**
 
 **Rationale:**
 - **Astro 5:** Best SEO (98-100 Lighthouse), static site generation, partial hydration
-- **Vue 3:** Interactive components (islands), familiar to Diko (6 years experience)
+- **Alpine.js:** Lightweight JavaScript framework (15KB) for reactive components, perfect for interactive islands
 - **TypeScript:** Type safety, better IDE support, modern development standard
 - **Tailwind CSS v4:** Utility-first CSS, Vite plugin (no PostCSS), auto-optimized
 
@@ -186,9 +186,9 @@ git commit -m "docs: final documentation updates"
 - 0KB JavaScript for content pages (pure HTML)
 - 98-100 Lighthouse score achievable
 - Perfect for AI search engines (clean, structured HTML)
-- Partial hydration (Vue islands for interactive parts only)
+- Partial hydration (Alpine.js for interactive parts only - just 15KB)
 
-**Alternative considered:** Nuxt (Vue SSR)
+**Alternative considered:** Next.js or Nuxt
 - Would work but ships more JavaScript
 - Harder to achieve 98-100 Lighthouse
 - Overkill for mostly static content
@@ -198,15 +198,15 @@ git commit -m "docs: final documentation updates"
 **Separation:**
 - `/pages/` - Routes (file-based routing)
 - `/layouts/` - Layout components (shared structure)
-- `/components/` - Reusable components (Astro + Vue)
+- `/components/` - Reusable components (Astro + Alpine.js)
 - `/content/blog/` - Markdown blog posts (content collections)
 - `/styles/` - Global CSS (Tailwind imports)
 - `/lib/` - Utilities (helper functions)
 - `/public/` - Static assets (images, robots.txt)
 
 **Component Strategy:**
-- **Astro components (.astro):** Static content, no interactivity needed
-- **Vue components (.vue):** Interactive parts (header menu, forms, chat widget in Phase 2)
+- **Astro components (.astro):** All components use .astro extension
+- **Alpine.js directives:** Add reactivity with `x-data`, `@click`, `x-show` for interactive parts (header menu, forms, chat widget in Phase 2)
 
 ### Tailwind CSS v4 (No PostCSS)
 
@@ -293,7 +293,8 @@ git commit -m "docs: final documentation updates"
 ### Code Quality Standards:
 - Follow Astro best practices (official docs)
 - Keep components small and focused
-- Use TypeScript types for Vue components
+- Use TypeScript for type safety
+- Use Alpine.js directives (`x-data`, `@click`, `x-show`) for interactivity
 - Tailwind classes only (no custom CSS)
 - Meaningful variable/component names
 - Comments only where logic is non-obvious
@@ -344,7 +345,7 @@ Before committing a feature, verify:
 2. **Don't duplicate work** - Check DEVELOPMENT.md for what's done
 3. **Update as you go** - Mark tasks complete in feature files
 4. **Test before committing** - Verify functionality works
-5. **Clean code** - Follow Astro/Vue conventions strictly
+5. **Clean code** - Follow Astro/Alpine.js conventions strictly
 6. **One feature = one commit** - Not per file
 
 ### For Human (Djoshkun):

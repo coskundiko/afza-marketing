@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+/* Fix view transitions to not overlap sticky header */
+@layer base {
+  /* Speed up transitions and ensure smooth animation */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.2s;
+  }
+
+  /* Create separate transition group for main content */
+  main {
+    view-transition-name: main-content;
+  }
+
+  /* Ensure header stays on top during all transitions */
+  header {
+    view-transition-name: header-persist;
+  }
+}

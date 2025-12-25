@@ -1,6 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
-import Header from '../components/Header.vue';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MetaTags from '../components/SEO/MetaTags.astro';
 import SchemaOrg from '../components/SEO/SchemaOrg.astro';
@@ -38,7 +38,8 @@ const { title, description, image, url } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="flex flex-col min-h-screen">
-    <Header client:load />
+    <!--<Header />-->
+    <Header transition:persist="header" />
 
     <main class="flex-grow" transition:animate="fade">
       <slot />

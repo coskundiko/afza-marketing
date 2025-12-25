@@ -1,7 +1,7 @@
 # AFZA MARKETING WEBSITE
 
 **Project:** Health Tourism Lead Generation - Marketing Website
-**Tech Stack:** Astro 5 + Vue 3 + Tailwind CSS v4 + TypeScript
+**Tech Stack:** Astro 5 + Alpine.js + Tailwind CSS v4 + TypeScript
 **Type:** Marketing Website (SEO-optimized, multiple pages)
 **Deadline:** January 15, 2025 (USA partner meeting)
 **Deploy:** Vercel (FREE)

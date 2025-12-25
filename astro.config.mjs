@@ -1,15 +1,17 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
-
+import {defineConfig} from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import alpinejs from '@astrojs/alpinejs';      // ✅ KEEP (official Alpine integration)
 
-import vue from '@astrojs/vue';
+import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  },
-
-  integrations: [vue()]
+    site: 'https://afza.ai',                     // ✅ KEEP (for sitemap URLs)
+    vite: {
+        plugins: [tailwindcss()]                   // ✅ KEEP (Tailwind v4)
+    },
+    integrations: [
+        alpinejs(),
+        sitemap()
+    ],
+    output: 'static'                             // ✅ KEEP (or remove, both work)
 });
