@@ -97,7 +97,7 @@ npm run build  # Converts .md → HTML
 ```
 ```
 Output:  dist/blog/dhi-vs-fue/index.html       (static HTML)
-Deploy:  https://afza.ai/blog/dhi-vs-fue       (Google sees HTML, not .md)
+Deploy:  https://afza-marketing.vercel.app/blog/dhi-vs-fue  (Google sees HTML, not .md)
 ```
 
 **.md files = source code (for developers)**

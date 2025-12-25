@@ -1,6 +1,6 @@
 // API client for Laravel backend
 // Phase 1: No backend yet, just placeholder
-// Phase 2: Connect to https://api.afza.ai
+// Phase 2: Connect to backend API (TBD)
 
 const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:8000';
 

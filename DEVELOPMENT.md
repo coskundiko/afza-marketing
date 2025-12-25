@@ -291,7 +291,7 @@ npm run build
 2. Converts each .md → static HTML file
 3. Outputs to: `dist/blog/{slug}/index.html`
 4. Deploy `dist/` folder to Vercel
-5. Google crawls: `https://afza.ai/blog/dhi-vs-fue` (sees HTML, not .md)
+5. Google crawls: `https://afza-marketing.vercel.app/blog/dhi-vs-fue` (sees HTML, not .md)
 
 ### File Flow Diagram
 
@@ -319,7 +319,7 @@ npm run build
 ┌─────────────────────────────────────────────────────────┐
 │ LIVE WEBSITE (What Google Sees)                        │
 │                                                         │
-│ https://afza.ai/blog/dhi-vs-fue                        │
+│ https://afza-marketing.vercel.app/blog/dhi-vs-fue     │
 │              ↓                                          │
 │         index.html  ← Google indexes HTML (not .md)    │
 └─────────────────────────────────────────────────────────┘

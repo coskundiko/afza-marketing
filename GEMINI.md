@@ -111,8 +111,8 @@ This is a marketing website for health tourism lead generation.
 - [ ] Cross-browser testing
 
 ### 🚀 JAN 15: Launch
-- [ ] Production deployment
-- [ ] Domain setup (afza.ai)
+- [x] Production deployment (Vercel)
+- [ ] Custom domain setup (optional)
 - [ ] Final checks
 - [ ] Demo ready for USA partner
 

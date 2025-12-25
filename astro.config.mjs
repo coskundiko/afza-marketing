@@ -5,7 +5,7 @@ import alpinejs from '@astrojs/alpinejs';      // ✅ KEEP (official Alpine inte
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-    site: 'https://afza.ai', // ✅ KEEP (for sitemap URLs)
+    site: 'https://afza-marketing.vercel.app', // ✅ Production URL
     vite: {
         plugins: [tailwindcss()] // ✅ KEEP (Tailwind v4)
     },
