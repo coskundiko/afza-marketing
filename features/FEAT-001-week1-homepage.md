@@ -19,33 +19,43 @@ Build complete homepage with hero section, SEO optimization, and responsive desi
 - [x] Import Tailwind CSS (`import '../styles/global.css'`)
 - [x] Add HTML structure (head, body)
 - [x] Add SEO meta tags component
-- [x] Add Header component (Vue island, transition:persist)
+- [x] Add Header component (Alpine.js, transition:persist)
 - [x] Add Footer component (static)
 - [x] Add slot for page content
+- [x] Add view transition CSS fixes
+- [x] Add TypeScript interfaces for props
 
 **File:** `src/layouts/Layout.astro`
 
 **Implementation:**
 ```astro
 ---
-import Header from '../components/Header.vue';
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MetaTags from '../components/SEO/MetaTags.astro';
+import SchemaOrg from '../components/SEO/SchemaOrg.astro';
 import '../styles/global.css';
 
-const { title, description } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  url?: string;
+}
+
+const { title, description, image, url } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <MetaTags title={title} description={description} />
+    <MetaTags title={title} description={description} image={image} url={url} />
+    <SchemaOrg />
     <title>{title}</title>
   </head>
-  <body>
-    <Header client:load transition:persist="header" />
-    <main>
+  <body class="flex flex-col min-h-screen">
+    <Header transition:persist="header" />
+    <main class="flex-grow" transition:animate="fade">
       <slot />
     </main>
     <Footer />
@@ -56,18 +66,23 @@ const { title, description } = Astro.props;
 ---
 
 ### FEAT-001-02: Header Component ✅
-- [x] Create `src/components/Header.vue` (Vue component)
+- [x] Create `src/components/Header.astro` (Alpine.js component)
 - [x] Add navigation links (Home, Procedures, Doctors, Blog, Contact)
 - [x] Add responsive mobile menu (hamburger)
 - [x] Add Tailwind styling
 - [x] Make it persistent across page navigation
+- [x] Add TypeScript types for navLinks
+- [x] Fix sticky positioning (z-[9999], isolate)
+- [x] Fix view transition overlaps
 
-**File:** `src/components/Header.vue`
+**File:** `src/components/Header.astro`
 
 **Features:**
-- Responsive navigation
-- Mobile hamburger menu
-- Active link highlighting
+- Responsive navigation with Alpine.js
+- Mobile hamburger menu (x-data, @click, x-show)
+- TypeScript typed navLinks array
+- Sticky header with proper z-index (9999)
+- Isolated stacking context for view transitions
 - Tailwind CSS styling
 
 ---
@@ -95,6 +110,8 @@ const { title, description } = Astro.props;
 - [x] Add Twitter Card tags
 - [x] Create `src/components/SEO/SchemaOrg.astro`
 - [x] Add MedicalBusiness schema
+- [x] Fix Schema.org script tag (add is:inline directive)
+- [x] Add TypeScript interfaces for props
 
 **Files:**
 - `src/components/SEO/MetaTags.astro`
@@ -103,6 +120,10 @@ const { title, description } = Astro.props;
 **Schema.org types:**
 - MedicalBusiness
 - Organization
+
+**TypeScript:**
+- MetaTags accepts: title, description, image?, url?
+- SchemaOrg uses is:inline for script tag
 
 ---
 
@@ -184,7 +205,7 @@ const { title, description } = Astro.props;
 - `src/layouts/Layout.astro`
 
 **Components:**
-- `src/components/Header.vue`
+- `src/components/Header.astro` (Alpine.js)
 - `src/components/Footer.astro`
 - `src/components/Hero.astro`
 - `src/components/SEO/MetaTags.astro`
@@ -193,10 +214,35 @@ const { title, description } = Astro.props;
 **Pages:**
 - `src/pages/index.astro`
 
+**Styles:**
+- `src/styles/global.css` (Tailwind imports + view transition CSS)
+
 **Routes:**
 ```
 / → Homepage (index.astro)
 ```
+
+---
+
+## Recent Improvements (Dec 25, 2025)
+
+### Build System
+- [x] Added TypeScript type checking to build (`astro check &&`)
+- [x] Added `@astrojs/check` and `typescript` dev dependencies
+
+### Header Fixes
+- [x] Fixed sticky positioning (z-index 9999, isolate class)
+- [x] Fixed view transition overlaps (separate transition groups)
+- [x] Added TypeScript types for navLinks array
+
+### SEO Optimization
+- [x] Fixed Schema.org script tag (added `is:inline`)
+- [x] Removed keywords meta tag (not used by search engines)
+- [x] Optimized for ChatGPT/Perplexity AI search
+
+### CSS Improvements
+- [x] Added view-transition-name for header and main
+- [x] Header uses isolate for proper stacking context
 
 ---
 

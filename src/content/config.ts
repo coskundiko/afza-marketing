@@ -7,7 +7,6 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.date(),
     author: z.string().default('Afza Health Tourism'),
-    keywords: z.array(z.string()),
     image: z.string().optional(),
   }),
 });

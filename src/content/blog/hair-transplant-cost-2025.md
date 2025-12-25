@@ -2,7 +2,6 @@
 title: "Hair Transplant Cost 2025: USA vs Turkey Price Comparison"
 description: "Complete guide to hair transplant costs in 2025. Compare prices between USA, Turkey, and other countries. Learn what affects the price and how to save money."
 pubDate: 2025-01-12
-keywords: ["hair transplant cost", "hair transplant price 2025", "Turkey hair transplant cost", "USA hair transplant price"]
 ---
 
 # Hair Transplant Cost 2025: USA vs Turkey Price Comparison

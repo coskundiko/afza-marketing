@@ -5,13 +5,13 @@ import alpinejs from '@astrojs/alpinejs';      // ✅ KEEP (official Alpine inte
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-    site: 'https://afza.ai',                     // ✅ KEEP (for sitemap URLs)
+    site: 'https://afza.ai', // ✅ KEEP (for sitemap URLs)
     vite: {
-        plugins: [tailwindcss()]                   // ✅ KEEP (Tailwind v4)
+        plugins: [tailwindcss()] // ✅ KEEP (Tailwind v4)
     },
     integrations: [
         alpinejs(),
         sitemap()
     ],
-    output: 'static'                             // ✅ KEEP (or remove, both work)
+    output: 'static' // ✅ KEEP (or remove, both work)
 });
