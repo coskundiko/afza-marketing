@@ -162,21 +162,19 @@ const { title, description, image, url } = Astro.props;
 
 ---
 
-### FEAT-001-07: Deploy to Vercel ⏳
-- [ ] Connect GitHub repo to Vercel
-- [ ] Configure Vercel project
-- [ ] Set environment variables (if needed)
-- [ ] Deploy to production
-- [ ] Test live site
-- [ ] Verify Lighthouse score
+### FEAT-001-07: Deploy to Vercel ✅
+- [x] Connect GitHub repo to Vercel
+- [x] Configure Vercel project
+- [x] Set environment variables (not needed)
+- [x] Deploy to production
+- [x] Test live site
+- [x] Verify SEO score (100/100)
 
-**Steps:**
-1. Push code to GitHub
-2. Import project in Vercel
-3. Deploy
-4. Test live URL
-
-**Target:** Live homepage by Dec 31
+**Completed:**
+- Live URL: https://afza-marketing.vercel.app/
+- SEO Score: 100/100 (all link text errors fixed)
+- Auto-deploy enabled (git push → automatic deployment)
+- Noindex tag active (prevents Google indexing preview URL)
 
 ---
 
@@ -270,6 +268,6 @@ git push origin main
 
 ---
 
-**Status:** ✅ Complete (Local development done, Vercel deployment pending)
+**Status:** ✅ Complete (Deployed to Vercel, SEO Score: 100/100)
 **Completed:** December 25, 2025
-**Target Completion:** December 31, 2025
+**Live URL:** https://afza-marketing.vercel.app/
