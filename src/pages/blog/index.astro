@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// Get all blog posts
+const posts = await getCollection('blog');
+
+// Sort by date (newest first)
+const sortedPosts = posts.sort((a, b) =>
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout
+  title="Blog - Hair Transplant Guides & Tips"
+  description="Expert guides on hair transplant procedures, costs, and techniques. Learn about DHI, FUE, and choosing the right clinic."
+>
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold mb-4">Hair Transplant Blog</h1>
+    <p class="text-gray-600 mb-12">Expert guides, comparisons, and tips for your hair transplant journey</p>
+
+    <div class="space-y-8">
+      {sortedPosts.map((post) => (
+        <article class="border-b pb-8">
+          <a href={`/blog/${post.slug}`} class="block hover:opacity-80">
+            <h2 class="text-2xl font-bold mb-2">{post.data.title}</h2>
+            <p class="text-gray-600 mb-3">{post.data.description}</p>
+            <time class="text-sm text-gray-500">
+              {post.data.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </time>
+            <div class="mt-2">
+              <span class="text-blue-600 hover:underline">Read more →</span>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,63 @@
+---
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Procedures', href: '/procedures' },
+  { name: 'Doctors', href: '/doctors' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Contact', href: '/contact' },
+];
+---
+
+<footer class="bg-gray-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Company Info -->
+      <div>
+        <h3 class="text-xl font-bold text-blue-400 mb-4">Afza Health Tourism</h3>
+        <p class="text-gray-300 text-sm">
+          Connecting USA customers with top-rated hair transplant doctors for premium care and exceptional results.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          {quickLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-gray-300 hover:text-blue-400 text-sm transition-colors"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Get in Touch</h4>
+        <p class="text-gray-300 text-sm mb-2">
+          Ready to start your journey?
+        </p>
+        <a
+          href="/contact"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+      <p class="text-gray-400 text-sm">
+        &copy; {currentYear} Afza Health Tourism. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

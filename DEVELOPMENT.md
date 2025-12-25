@@ -55,22 +55,24 @@ Initial Astro project setup with Vue 3 and Tailwind CSS v4.
 ---
 
 #### feat/homepage: Homepage
-**Status:** ⏳ Pending
+**Status:** ✅ Complete
 
 **Description:**
 Complete homepage with hero section, SEO optimization, and responsive design.
 
-**Will Include:**
-- Main layout (Layout.astro) with Tailwind import
-- Header component (Vue island, persistent)
-- Footer component (Astro, static)
-- Homepage (index.astro)
-- Hero section component
-- SEO meta tags component
-- Schema.org JSON-LD
-- Deploy to Vercel
+**Completed:**
+- ✅ Main layout (Layout.astro) with Tailwind import
+- ✅ Header component (Vue island, persistent navigation)
+- ✅ Footer component (Astro, static)
+- ✅ Homepage (index.astro) with Hero, Features, CTA sections
+- ✅ Hero section component with gradient background
+- ✅ SEO meta tags component (Open Graph, Twitter Cards)
+- ✅ Schema.org JSON-LD (MedicalBusiness)
+- ✅ Custom 404 page
+- ✅ Simple contact page (placeholder for FEAT-004)
+- ⏳ Deploy to Vercel (pending)
 
-**Files to Create:**
+**Files Created:**
 ```
 src/
 ├── layouts/
@@ -83,13 +85,29 @@ src/
 │       ├── MetaTags.astro     # SEO meta tags
 │       └── SchemaOrg.astro    # Schema.org JSON-LD
 └── pages/
-    └── index.astro            # Homepage
+    ├── index.astro            # Homepage
+    ├── contact.astro          # Contact page (placeholder)
+    └── 404.astro              # Custom 404 page
 ```
 
 **Routes:**
 ```
 / → Homepage (index.astro)
+/contact → Contact page (placeholder)
+/404 → Custom 404 page
 ```
+
+**Human Review:**
+- [x] Homepage renders correctly
+- [x] Header navigation works
+- [x] Mobile menu functional
+- [x] Footer displays properly
+- [x] Hero section responsive
+- [x] Features section (3 cards)
+- [x] CTA section
+- [x] Custom 404 page
+- [ ] Vercel deployment (pending)
+- [ ] Lighthouse score 98-100 (will test after deploy)
 
 **See:** `features/FEAT-001-week1-homepage.md` for detailed tasks
 
@@ -219,7 +237,7 @@ Mobile optimization, performance, cross-browser testing.
 │   ├── pages/              # Routes (*.astro)
 │   ├── layouts/            # Layout components
 │   ├── components/         # Reusable components
-│   ├── content/blog/       # Markdown blog posts
+│   ├── content/blog/       # Markdown blog posts (.md source)
 │   ├── styles/             # Tailwind global CSS
 │   └── lib/                # Utilities
 ├── public/                 # Static assets
@@ -231,6 +249,134 @@ Mobile optimization, performance, cross-browser testing.
 ├── DEVELOPMENT.md          # This file
 └── README.md
 ```
+
+---
+
+## Content Collections Explained
+
+### What are Content Collections?
+
+Astro's system for managing markdown content (blog posts) with type safety and automatic HTML conversion.
+
+### How .md Files Become HTML Pages
+
+**Development workflow:**
+1. Write content in markdown: `src/content/blog/dhi-vs-fue.md`
+2. Run dev server: `npm run dev`
+3. Astro converts .md → HTML in memory
+4. View at: `localhost:4321/blog/dhi-vs-fue`
+
+**Production build:**
+```bash
+npm run build
+```
+1. Astro reads all .md files from `src/content/blog/`
+2. Converts each .md → static HTML file
+3. Outputs to: `dist/blog/{slug}/index.html`
+4. Deploy `dist/` folder to Vercel
+5. Google crawls: `https://afza.ai/blog/dhi-vs-fue` (sees HTML, not .md)
+
+### File Flow Diagram
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ DEVELOPMENT (Your Computer)                            │
+│                                                         │
+│ src/content/blog/dhi-vs-fue.md  ← You write markdown   │
+│              ↓                                          │
+│         npm run dev                                     │
+│              ↓                                          │
+│ localhost:4321/blog/dhi-vs-fue  ← HTML in browser      │
+└─────────────────────────────────────────────────────────┘
+                      ↓
+              npm run build
+                      ↓
+┌─────────────────────────────────────────────────────────┐
+│ PRODUCTION BUILD                                        │
+│                                                         │
+│ dist/blog/dhi-vs-fue/index.html  ← Static HTML file    │
+└─────────────────────────────────────────────────────────┘
+                      ↓
+                Deploy to Vercel
+                      ↓
+┌─────────────────────────────────────────────────────────┐
+│ LIVE WEBSITE (What Google Sees)                        │
+│                                                         │
+│ https://afza.ai/blog/dhi-vs-fue                        │
+│              ↓                                          │
+│         index.html  ← Google indexes HTML (not .md)    │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Why This Matters for SEO
+
+**Without blog posts:**
+- Website: Just homepage
+- Google traffic: 50-100 visitors/month (only brand searches)
+- Cost per visitor: $3-5 (Google Ads required)
+
+**With blog posts (.md → HTML):**
+- Website: Homepage + 5-10 blog posts
+- Google traffic: 500-1,000 visitors/month (organic searches)
+- Cost per visitor: FREE (Google indexes HTML pages)
+- Keywords rank: "DHI vs FUE", "hair transplant cost 2025", etc.
+
+### Content Collection Setup
+
+**1. Define schema** (`src/content/config.ts`):
+```typescript
+import { defineCollection, z } from 'astro:content';
+
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.date(),
+    keywords: z.array(z.string()),
+  }),
+});
+
+export const collections = { blog };
+```
+
+**2. Write blog post** (`src/content/blog/dhi-vs-fue.md`):
+```markdown
+---
+title: "DHI vs FUE Hair Transplant"
+description: "Compare techniques"
+pubDate: 2025-01-10
+keywords: ["DHI", "FUE", "hair transplant"]
+---
+
+# DHI vs FUE
+
+Content here...
+```
+
+**3. Query in page** (`src/pages/blog/index.astro`):
+```astro
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+---
+
+{posts.map(post => (
+  <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+))}
+```
+
+**4. Astro auto-generates URLs:**
+- `dhi-vs-fue.md` → `/blog/dhi-vs-fue`
+- `cost-2025.md` → `/blog/cost-2025`
+
+### Key Points
+
+- ✅ .md files = source code (developers write these)
+- ✅ .html files = production output (Google indexes these)
+- ✅ `npm run build` converts .md → HTML
+- ✅ Google NEVER sees .md files (only HTML)
+- ✅ SEO benefit: Blog posts rank for keywords → free traffic
 
 ---
 

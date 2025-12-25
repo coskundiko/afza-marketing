@@ -1,0 +1,18 @@
+---
+// Schema.org JSON-LD for Medical Business
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Afza Health Tourism",
+  "description": "Premium hair transplant services connecting USA customers with top-rated doctors",
+  "url": Astro.site?.href || "https://afza-health.com",
+  "medicalSpecialty": "Hair Transplant Surgery",
+  "priceRange": "$$-$$$",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

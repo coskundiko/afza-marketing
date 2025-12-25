@@ -67,7 +67,7 @@ npm run preview
 │   ├── pages/              # Routes (index.astro, about.astro, etc.)
 │   ├── layouts/            # Layout components
 │   ├── components/         # Reusable components
-│   ├── content/            # Markdown blog posts
+│   ├── content/            # Markdown blog posts (.md → HTML for SEO)
 │   ├── styles/             # Global CSS (Tailwind)
 │   └── lib/                # Utilities, API client
 ├── public/                 # Static assets (images, robots.txt)
@@ -77,6 +77,33 @@ npm run preview
 ├── CLAUDE.md               # Claude AI development guide
 └── GEMINI.md               # Gemini AI development guide
 ```
+
+---
+
+## HOW BLOG POSTS WORK (Content Collections)
+
+**Why .md files?** Easy to write content (markdown), Astro converts to HTML for production.
+
+**Development:**
+```
+You write:  src/content/blog/dhi-vs-fue.md     (markdown)
+               ↓
+Astro shows: localhost:4321/blog/dhi-vs-fue    (HTML)
+```
+
+**Production:**
+```bash
+npm run build  # Converts .md → HTML
+```
+```
+Output:  dist/blog/dhi-vs-fue/index.html       (static HTML)
+Deploy:  https://afza.ai/blog/dhi-vs-fue       (Google sees HTML, not .md)
+```
+
+**.md files = source code (for developers)**
+**.html files = deployed output (for Google/users)**
+
+**SEO benefit:** Blog posts rank in Google for keywords like "DHI vs FUE hair transplant" → Free organic traffic
 
 ---
 

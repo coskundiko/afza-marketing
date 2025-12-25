@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// Generate static paths for all blog posts
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+>
+  <article class="max-w-3xl mx-auto px-4 py-16 prose prose-lg">
+    <header class="mb-8">
+      <h1 class="text-4xl font-bold mb-4">{post.data.title}</h1>
+      <p class="text-xl text-gray-600 mb-4">{post.data.description}</p>
+      <time class="text-sm text-gray-500">
+        {post.data.pubDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}
+      </time>
+    </header>
+
+    <Content />
+  </article>
+</Layout>
+
+<style>
+  /* Prose styling for markdown content */
+  .prose {
+    color: #374151;
+  }
+
+  .prose h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .prose h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+  }
+
+  .prose th {
+    background-color: #f3f4f6;
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #e5e7eb;
+    font-weight: 600;
+  }
+
+  .prose td {
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .prose strong {
+    font-weight: 600;
+  }
+
+  .prose a {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  .prose a:hover {
+    color: #1d4ed8;
+  }
+
+  .prose hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+  }
+</style>
