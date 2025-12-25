@@ -1,43 +1,92 @@
-# Astro Starter Kit: Minimal
+# AFZA MARKETING WEBSITE
 
-```sh
-npm create astro@latest -- --template minimal
+**Project:** Health Tourism Lead Generation - Marketing Website
+**Tech Stack:** Astro 5 + Vue 3 + Tailwind CSS v4 + TypeScript
+**Type:** Marketing Website (SEO-optimized, multiple pages)
+**Deadline:** January 15, 2025 (USA partner meeting)
+**Deploy:** Vercel (FREE)
+
+---
+
+## WHAT THIS IS
+
+Multi-page marketing website for health tourism lead generation:
+- Homepage (landing page)
+- Procedures (DHI, FUE, Sapphire hair transplant)
+- Doctors (profiles)
+- Blog (SEO content)
+- Contact (lead capture)
+
+**Goal:** Organic SEO traffic (Google, ChatGPT, Perplexity) → USA customers → USA hospitals
+
+**Target:** 98-100 Lighthouse score
+
+---
+
+## QUICK START
+
+```bash
+# Install dependencies (if needed)
+npm install
+
+# Start development server
+npm run dev
+# Opens at http://localhost:4321
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## PROJECT DOCUMENTATION
 
-Inside of your Astro project, you'll see the following folders and files:
+**For Claude AI:** See `CLAUDE.md` (implementation guide, task checklist, progress tracking)
+**For Gemini AI:** See `GEMINI.md` (same info, Gemini-formatted)
+**For High-Level Planning:** See `/career/projects/afza/` (general overview, business model)
 
-```text
-/
-├── public/
+---
+
+## TECH STACK
+
+- **Astro 5:** Static site generation, partial hydration
+- **Vue 3:** Interactive components (islands)
+- **Tailwind CSS v4:** Utility-first CSS (Vite plugin, no PostCSS)
+- **TypeScript:** Type safety
+
+---
+
+## PROJECT STRUCTURE
+
+```
+/afza-marketing/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── pages/              # Routes (index.astro, about.astro, etc.)
+│   ├── layouts/            # Layout components
+│   ├── components/         # Reusable components
+│   ├── content/            # Markdown blog posts
+│   ├── styles/             # Global CSS (Tailwind)
+│   └── lib/                # Utilities, API client
+├── public/                 # Static assets (images, robots.txt)
+├── astro.config.mjs        # Astro configuration
+├── tailwind.config.cjs     # Tailwind configuration
+├── package.json
+├── CLAUDE.md               # Claude AI development guide
+└── GEMINI.md               # Gemini AI development guide
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## DEVELOPMENT TRACKING
 
-Any static assets, like images, can be placed in the `public/` directory.
+**Current Phase:** Setup Complete
+**Next:** Build homepage
 
-## 🧞 Commands
+**Task Progress:** See `CLAUDE.md` for detailed checklist
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Last Updated:** December 25, 2025
