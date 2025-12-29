@@ -21,7 +21,7 @@ const { Content } = await post.render();
 >
   <article class="max-w-3xl mx-auto px-4 py-16 prose prose-lg">
     <div class="mb-8">
-      <h1 class="article-title text-4xl font-bold mb-4">{post.data.title}</h1>
+      <h1 class="article-title text-4xl font-bold mb-4" style="font-size: 2.25rem;">{post.data.title}</h1>
       <p class="text-xl text-gray-600 mb-4">{post.data.description}</p>
       <time class="text-sm text-gray-500">
         {post.data.pubDate.toLocaleDateString('en-US', {
